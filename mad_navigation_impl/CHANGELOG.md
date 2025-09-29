@@ -1,3 +1,9 @@
+## 0.3.1+1 (29-09-2025)
+
+### Updated
+
+Remove flutter from dependencies.
+
 ## 0.3.1 (24-09-2025)
 
 ### Updated
@@ -51,21 +57,21 @@ Exception classes inherited from `MadNavigationException`:
 ### Added
 
 * The `router` directory in the `mad_navigation_flutter` module, including:
-  * `MadRouteMapper` — an abstraction for displaying `NavRoute` in `Page` with support for various
-    page types (`NavPage`, `NavDialog`, `NavBottomSheet`, etc.);
-  * `MadPageFactoryBuilder` — a factory for creating pages with the ability to extend and
-    customize them via `buildCustomPageFromMissingNavPage` and
-    `buildCustomPageFromMissingNavRoute`;
-  * `pages` — contains basic implementations of page types for navigation, including standard
-    Flutter pages (`MaterialPage`, `CupertinoPage`) and custom pages with animations (
-    `FadeAnimationPage`, `SimplePage`), as well as pages for displaying modal components —
-    dialogs (`Dialog`) and bottom sheets (`BottomSheet`);
-  * `AppRouterDelegate` — implementation of `RouterDelegate` for managing navigation using
-    the root page stack (`MadNavigationService`).
-  * `RouterTabDelegate` — implementation of `RouterDelegate` for managing navigation using
-    a combined tab stack (`MadTabNavigationService`).
-  * `MadUrlParser` — abstraction for parsing and restoring route state (with support for
-    flutter web).
+    * `MadRouteMapper` — an abstraction for displaying `NavRoute` in `Page` with support for various
+      page types (`NavPage`, `NavDialog`, `NavBottomSheet`, etc.);
+    * `MadPageFactoryBuilder` — a factory for creating pages with the ability to extend and
+      customize them via `buildCustomPageFromMissingNavPage` and
+      `buildCustomPageFromMissingNavRoute`;
+    * `pages` — contains basic implementations of page types for navigation, including standard
+      Flutter pages (`MaterialPage`, `CupertinoPage`) and custom pages with animations (
+      `FadeAnimationPage`, `SimplePage`), as well as pages for displaying modal components —
+      dialogs (`Dialog`) and bottom sheets (`BottomSheet`);
+    * `AppRouterDelegate` — implementation of `RouterDelegate` for managing navigation using
+      the root page stack (`MadNavigationService`).
+    * `RouterTabDelegate` — implementation of `RouterDelegate` for managing navigation using
+      a combined tab stack (`MadTabNavigationService`).
+    * `MadUrlParser` — abstraction for parsing and restoring route state (with support for
+      flutter web).
 
 ## 0.1.2 (21-07-2025)
 
@@ -95,8 +101,8 @@ Exception classes inherited from `MadNavigationException`:
 * `MadNavigationState` - the base navigation state class;
 * `MadTabNavigationState` - an extended navigation state class for working with tabs.
 * `MadNavigationService` has been split into two separate services:
-  * `MadNavigationService` - basic navigation service;
-  * `MadTabNavigationService` - extended navigation service for working with tabs.
+    * `MadNavigationService` - basic navigation service;
+    * `MadTabNavigationService` - extended navigation service for working with tabs.
 * A similar split has been made for `MadNavigationServiceImpl` into `MadNavigationServiceImpl` and
   `MadTabNavigationServiceImpl`.
 
@@ -132,11 +138,11 @@ Initial release
 
 * The `mad_navigation` module, containing models and descriptions of system navigation methods (not
   including user transitions);
-  * The navigation state is described by the `MadNavigationState` class, and the basic methods are
-    defined in `MadNavigationService`;
-  * `NavPage`, `NavDialog`, and `NavBottomSheet` are used for page, dialog, and BS instances,
-    respectively.
-  * The `PageTabNav`, `MadTabType`, and `MadTabState` classes have been created to manage tabs.
+    * The navigation state is described by the `MadNavigationState` class, and the basic methods are
+      defined in `MadNavigationService`;
+    * `NavPage`, `NavDialog`, and `NavBottomSheet` are used for page, dialog, and BS instances,
+      respectively.
+    * The `PageTabNav`, `MadTabType`, and `MadTabState` classes have been created to manage tabs.
 * The `mad_navigation_impl` module contains the implementation of the `MadNavigationServiceImpl`
   navigator based on the flutter independent package `bloc`.
 * The `mad_navigation_flutter` module contains components for managing the application UI, such as
