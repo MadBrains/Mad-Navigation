@@ -1,3 +1,9 @@
+## 0.3.1+1 (29-09-2025)
+
+### Updated
+
+Remove flutter from the dependencies of `mad_navigation` and `mad_navigation_impl`.
+
 ## 0.3.1 (24-09-2025)
 
 ### Updated
