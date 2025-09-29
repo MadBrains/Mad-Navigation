@@ -1,6 +1,8 @@
 part of 'mad_tab_navigation_service_impl.dart';
 
-mixin _TabNavigatorBlocMixin on BasicBloc<MadNavigationEvent, MadNavigationState> implements MadTabNavigationService {
+mixin _TabNavigatorBlocMixin
+    on BasicBloc<MadNavigationEvent, MadNavigationState>
+    implements MadTabNavigationService {
   @override
   Stream<MadTabNavigationState> get stateStream => stream.cast();
 
@@ -25,7 +27,10 @@ mixin _TabNavigatorBlocMixin on BasicBloc<MadNavigationEvent, MadNavigationState
   }
 
   @override
-  void replaceInTab<T>({required NavRoute<T> oldRoute, required NavRoute<T> newRoute}) {
+  void replaceInTab<T>({
+    required NavRoute<T> oldRoute,
+    required NavRoute<T> newRoute,
+  }) {
     if (oldRoute == newRoute) return;
 
     add(NavigationReplaceTabRouteEvent(oldRoute: oldRoute, newRoute: newRoute));
@@ -55,15 +60,31 @@ mixin _TabNavigatorBlocMixin on BasicBloc<MadNavigationEvent, MadNavigationState
   }
 
   @override
-  Future<T?> pushAndRemoveUntilForRootStack<T>(NavRoute<T> route, {required NavRoutePredicate predicate}) {
-    add(NavigationPushAndRemoveUntilForRootStackEvent(route: route, predicate: predicate));
+  Future<T?> pushAndRemoveUntilForRootStack<T>(
+    NavRoute<T> route, {
+    required NavRoutePredicate predicate,
+  }) {
+    add(
+      NavigationPushAndRemoveUntilForRootStackEvent(
+        route: route,
+        predicate: predicate,
+      ),
+    );
 
     return route.popped;
   }
 
   @override
-  Future<T?> pushAndRemoveUntilForTabStack<T>(NavRoute<T> route, {required NavRoutePredicate predicate}) {
-    add(NavigationPushAndRemoveUntilForTabStackEvent(route: route, predicate: predicate));
+  Future<T?> pushAndRemoveUntilForTabStack<T>(
+    NavRoute<T> route, {
+    required NavRoutePredicate predicate,
+  }) {
+    add(
+      NavigationPushAndRemoveUntilForTabStackEvent(
+        route: route,
+        predicate: predicate,
+      ),
+    );
 
     return route.popped;
   }

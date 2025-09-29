@@ -11,7 +11,8 @@ abstract class MadNavigationEvent {
 /// Event to push a new root route onto the navigation stack.
 ///
 /// This will add the [route] to the top of the navigation stack.
-final class NavigationPushRootRouteEvent extends MadNavigationEvent with Stringify {
+final class NavigationPushRootRouteEvent extends MadNavigationEvent
+    with Stringify {
   const NavigationPushRootRouteEvent(this.route);
 
   /// The route to push onto the stack.
@@ -31,7 +32,8 @@ final class NavigationRefreshEvent extends MadNavigationEvent {
 /// Event to replace a specific route in the navigation stack.
 ///
 /// This will replace [oldRoute] with [newRoute] in the navigation stack.
-final class NavigationReplaceRootRouteEvent extends MadNavigationEvent with Stringify {
+final class NavigationReplaceRootRouteEvent extends MadNavigationEvent
+    with Stringify {
   const NavigationReplaceRootRouteEvent({
     required this.oldRoute,
     required this.newRoute,
@@ -53,7 +55,8 @@ final class NavigationReplaceRootRouteEvent extends MadNavigationEvent with Stri
 /// Event to update the entire navigation state.
 ///
 /// This will replace the current navigation state with the provided [state].
-final class NavigationUpdateStateEvent extends MadNavigationEvent with Stringify {
+final class NavigationUpdateStateEvent extends MadNavigationEvent
+    with Stringify {
   const NavigationUpdateStateEvent(this.state);
 
   /// The new navigation state.
@@ -79,7 +82,8 @@ final class NavigationPopEvent extends MadNavigationEvent with Stringify {
 /// Event to pop the current route and push a new root route.
 ///
 /// This combines a pop and push operation into a single atomic action.
-final class NavigationPopAndPushRootRouteEvent extends MadNavigationEvent with Stringify {
+final class NavigationPopAndPushRootRouteEvent extends MadNavigationEvent
+    with Stringify {
   const NavigationPopAndPushRootRouteEvent(this.route, {this.result});
 
   /// The new route to push.
@@ -114,8 +118,12 @@ final class NavigationPopUntilEvent extends MadNavigationEvent with Stringify {
 ///
 /// This is commonly used for navigation flows where you want to clear the stack
 /// up to a certain point and then push a new route.
-final class NavigationPushAndRemoveUntilForRootStackEvent extends MadNavigationEvent with Stringify {
-  const NavigationPushAndRemoveUntilForRootStackEvent({required this.route, required this.predicate});
+final class NavigationPushAndRemoveUntilForRootStackEvent
+    extends MadNavigationEvent with Stringify {
+  const NavigationPushAndRemoveUntilForRootStackEvent({
+    required this.route,
+    required this.predicate,
+  });
 
   /// The new route to push.
   final AnyNavRoute route;
@@ -133,7 +141,8 @@ final class NavigationPushAndRemoveUntilForRootStackEvent extends MadNavigationE
 /// Event to completely reset the navigation stack.
 ///
 /// This will replace the entire navigation stack with the provided [stack].
-final class NavigationResetRootStackEvent extends MadNavigationEvent with Stringify {
+final class NavigationResetRootStackEvent extends MadNavigationEvent
+    with Stringify {
   const NavigationResetRootStackEvent(this.stack);
 
   /// The new navigation stack.

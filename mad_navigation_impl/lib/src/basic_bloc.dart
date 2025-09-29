@@ -53,7 +53,8 @@ abstract class BasicBloc<Event, State> extends Bloc<Event, State> {
   ///
   /// This is useful for widgets that need to react to state changes but don't
   /// need to handle the initial state differently.
-  late final Stream<State> streamSeeded = stream.publishValueSeeded(state).autoConnect();
+  late final Stream<State> streamSeeded =
+      stream.publishValueSeeded(state).autoConnect();
 
   /// Sets up event handlers for this bloc.
   ///
@@ -75,13 +76,10 @@ abstract class BasicBloc<Event, State> extends Bloc<Event, State> {
     // Prevent duplicate event handler registration
     if (!_eventHandlerTypes.add(E)) return;
 
-    on<E>(
-      (E event, Emitter<State> emit) async {
-        await for (final State state in handler(event)) {
-          emit(state);
-        }
-      },
-      transformer: transformer,
-    );
+    on<E>((E event, Emitter<State> emit) async {
+      await for (final State state in handler(event)) {
+        emit(state);
+      }
+    }, transformer: transformer);
   }
 }
