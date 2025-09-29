@@ -1,6 +1,7 @@
 part of 'mad_navigation_service_impl.dart';
 
-mixin _NavigatorBlocMixin on BasicBloc<MadNavigationEvent, MadNavigationState> implements MadNavigationService {
+mixin _NavigatorBlocMixin on BasicBloc<MadNavigationEvent, MadNavigationState>
+    implements MadNavigationService {
   @override
   Stream<MadNavigationState> get stateStream => stream;
 
@@ -17,10 +18,15 @@ mixin _NavigatorBlocMixin on BasicBloc<MadNavigationEvent, MadNavigationState> i
   }
 
   @override
-  void replaceInRoot<T>({required NavRoute<T> oldRoute, required NavRoute<T> newRoute}) {
+  void replaceInRoot<T>({
+    required NavRoute<T> oldRoute,
+    required NavRoute<T> newRoute,
+  }) {
     if (oldRoute == newRoute) return;
 
-    add(NavigationReplaceRootRouteEvent(oldRoute: oldRoute, newRoute: newRoute));
+    add(
+      NavigationReplaceRootRouteEvent(oldRoute: oldRoute, newRoute: newRoute),
+    );
   }
 
   @override
@@ -47,8 +53,16 @@ mixin _NavigatorBlocMixin on BasicBloc<MadNavigationEvent, MadNavigationState> i
   }
 
   @override
-  Future<T?> pushAndRemoveUntilForRootStack<T>(NavRoute<T> route, {required NavRoutePredicate predicate}) {
-    add(NavigationPushAndRemoveUntilForRootStackEvent(route: route, predicate: predicate));
+  Future<T?> pushAndRemoveUntilForRootStack<T>(
+    NavRoute<T> route, {
+    required NavRoutePredicate predicate,
+  }) {
+    add(
+      NavigationPushAndRemoveUntilForRootStackEvent(
+        route: route,
+        predicate: predicate,
+      ),
+    );
 
     return route.popped;
   }

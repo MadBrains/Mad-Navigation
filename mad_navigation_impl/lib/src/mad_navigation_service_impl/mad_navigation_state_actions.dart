@@ -1,7 +1,10 @@
 part of 'mad_navigation_service_impl.dart';
 
 extension on MadNavigationState {
-  MadNavigationState _pushToRootStack(AnyNavRoute page, {MadNavigationState? initialState}) {
+  MadNavigationState _pushToRootStack(
+    AnyNavRoute page, {
+    MadNavigationState? initialState,
+  }) {
     final MadNavigationState state = initialState ?? this;
     final RouteStack stack = state.rootStack.copy()..add(page);
 
@@ -15,14 +18,23 @@ extension on MadNavigationState {
     final RouteStack rootStack = this.rootStack.copy();
     final int index = rootStack.indexWhere(NavRoute.isRoutePredicate(oldPage));
 
-    assert(index >= 0, 'This Navigator does not contain the specified oldRoute in root.');
+    assert(
+      index >= 0,
+      'This Navigator does not contain the specified oldRoute in root.',
+    );
 
     return copyWith(
-      rootStack: rootStack.replace(oldItem: rootStack.elementAt(index), newItem: newPage),
+      rootStack: rootStack.replace(
+        oldItem: rootStack.elementAt(index),
+        newItem: newPage,
+      ),
     );
   }
 
-  MadNavigationState _pop({Object? lastResult, MadNavigationState? initialState}) {
+  MadNavigationState _pop({
+    Object? lastResult,
+    MadNavigationState? initialState,
+  }) {
     final MadNavigationState state = initialState ?? this;
 
     if (state.rootStack.length < 2) return state;
@@ -39,9 +51,15 @@ extension on MadNavigationState {
     );
   }
 
-  MadNavigationState _popAndPushRootStack(AnyNavRoute page, {Object? lastResult}) {
+  MadNavigationState _popAndPushRootStack(
+    AnyNavRoute page, {
+    Object? lastResult,
+  }) {
     final MadNavigationState stateAfterPop = _pop(lastResult: lastResult);
-    final MadNavigationState stateAfterPush = _pushToRootStack(page, initialState: stateAfterPop);
+    final MadNavigationState stateAfterPush = _pushToRootStack(
+      page,
+      initialState: stateAfterPop,
+    );
 
     return stateAfterPush.copyWith(lastResult: lastResult.nullable());
   }
@@ -68,7 +86,10 @@ extension on MadNavigationState {
     return state;
   }
 
-  MadNavigationState _pushAndRemoveUntilForRootStack(AnyNavRoute page, NavRoutePredicate predicate) {
+  MadNavigationState _pushAndRemoveUntilForRootStack(
+    AnyNavRoute page,
+    NavRoutePredicate predicate,
+  ) {
     final MadNavigationState stateAfterPopUntil = _popUntil(predicate);
 
     return _pushToRootStack(page, initialState: stateAfterPopUntil);
@@ -87,8 +108,6 @@ extension _SetExt<T> on Set<T> {
   }
 
   Set<T> replace({required T oldItem, required T newItem}) {
-    return <T>{
-      for (final T item in this) item == oldItem ? newItem : item,
-    };
+    return <T>{for (final T item in this) item == oldItem ? newItem : item};
   }
 }
