@@ -1,0 +1,15 @@
+name: mad_navigation_impl
+description: A pure Dart implementation of navigation services and utilities for mad_navigation package.
+version: 0.3.1
+repository: https://github.com/MadBrains/Mad-Navigation
+issue_tracker: https://github.com/MadBrains/Mad-Navigation/issues
+homepage: https://madbrains.ru/
+
+environment:
+  sdk: ">=3.6.0 <4.0.0"
+  flutter: ">=3.27.0 <4.0.0"
+
+dependencies:
+  bloc: ">=8.0.0 <10.0.0"
+  rxdart: ">=0.28.0 <1.0.0"
+  uuid: ">4.5.0 <5.0.0"

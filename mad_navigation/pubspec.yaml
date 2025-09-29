@@ -1,0 +1,13 @@
+name: mad_navigation
+description: A pure Dart package providing core navigation interfaces and abstractions for building maintainable and testable applications.
+version: 0.3.1
+repository: https://github.com/MadBrains/Mad-Navigation/tree/main/mad_navigation
+issue_tracker: https://github.com/MadBrains/Mad-Navigation/issues
+homepage: https://madbrains.ru/
+
+environment:
+  sdk: ">=3.6.0 <4.0.0"
+  flutter: ">=3.27.0 <4.0.0"
+
+dependencies:
+  equatable: ">=2.0.0 <3.0.0"

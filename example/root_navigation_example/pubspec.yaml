@@ -1,0 +1,28 @@
+name: root_navigation_example
+description: Example of Mad Navigation package with root stack
+version: 0.3.1
+publish_to: "none"
+dev_line_length: 120
+
+environment:
+  sdk: ">=3.6.0 <4.0.0"
+  flutter: ">=3.27.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # For Domain layer
+  mad_navigation:
+    path: ../../mad_navigation
+
+  # For Data layer
+  mad_navigation_impl:
+    path: ../../mad_navigation_impl
+
+  # For App layer
+  mad_navigation_flutter:
+    path: ../../mad_navigation_flutter
+
+flutter:
+  uses-material-design: true

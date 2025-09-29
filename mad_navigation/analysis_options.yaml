@@ -1,0 +1,13 @@
+include: ../analysis_options.yaml
+
+analyzer:
+  plugins:
+    - custom_lint
+
+custom_lint:
+  rules:
+    - full_mapped_fields
+    - stringify_models
+    - stringify_states
+    - stringify_events
+    - full_copy_with
