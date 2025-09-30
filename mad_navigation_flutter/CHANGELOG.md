@@ -1,3 +1,9 @@
+## 0.3.1+1 (29-09-2025)
+
+### Updated
+
+Upgraded the versions of the `mad_navigation` and `mad_navigation_impl` dependencies.
+
 ## 0.3.1 (24-09-2025)
 
 ### Updated
