@@ -21,7 +21,8 @@ abstract class MadUrlParser extends RouteInformationParser<MadNavigationState> {
   /// This implementation returns the current navigation state without modification.
   /// Subclasses can override this method to provide custom URL parsing logic.
   @override
-  Future<MadNavigationState> parseRouteInformation(RouteInformation info) async {
+  Future<MadNavigationState> parseRouteInformation(
+      RouteInformation info) async {
     final MadNavigationState initial = navigationService.state;
 
     // TODO(FD-94): parse full route location for flutter web

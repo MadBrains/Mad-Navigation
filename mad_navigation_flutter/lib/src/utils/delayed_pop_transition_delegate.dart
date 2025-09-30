@@ -15,8 +15,10 @@ class DelayedPopTransitionDelegate extends TransitionDelegate<void> {
   @override
   Iterable<RouteTransitionRecord> resolve({
     required List<RouteTransitionRecord> newPageRouteHistory,
-    required Map<RouteTransitionRecord?, RouteTransitionRecord> locationToExitingPageRoute,
-    required Map<RouteTransitionRecord?, List<RouteTransitionRecord>> pageRouteToPagelessRoutes,
+    required Map<RouteTransitionRecord?, RouteTransitionRecord>
+        locationToExitingPageRoute,
+    required Map<RouteTransitionRecord?, List<RouteTransitionRecord>>
+        pageRouteToPagelessRoutes,
   }) {
     final List<RouteTransitionRecord> results = <RouteTransitionRecord>[];
 
@@ -27,31 +29,40 @@ class DelayedPopTransitionDelegate extends TransitionDelegate<void> {
     // This method will handle the exiting route and its corresponding pageless
     // route at this location. It will also recursively check if there is any
     // other exiting routes above it and handle them accordingly.
-    void handleExitingRoute(RouteTransitionRecord? location, {required bool isLast}) {
-      final RouteTransitionRecord? exitingPageRoute = locationToExitingPageRoute[location];
+    void handleExitingRoute(RouteTransitionRecord? location,
+        {required bool isLast}) {
+      final RouteTransitionRecord? exitingPageRoute =
+          locationToExitingPageRoute[location];
       if (exitingPageRoute == null) return;
 
       if (exitingPageRoute.isWaitingForExitingDecision) {
-        final bool hasPagelessRoute = pageRouteToPagelessRoutes.containsKey(exitingPageRoute);
-        final bool isLastExitingPageRoute = isLast && !locationToExitingPageRoute.containsKey(exitingPageRoute);
+        final bool hasPagelessRoute =
+            pageRouteToPagelessRoutes.containsKey(exitingPageRoute);
+        final bool isLastExitingPageRoute =
+            isLast && !locationToExitingPageRoute.containsKey(exitingPageRoute);
         if (isBulkPop || isLastExitingPageRoute) {
           exitingPageRoute.markForPop(exitingPageRoute.route.currentResult);
         } else {
-          exitingPageRoute.markForComplete(exitingPageRoute.route.currentResult);
+          exitingPageRoute
+              .markForComplete(exitingPageRoute.route.currentResult);
         }
 
         if (hasPagelessRoute) {
           final List<RouteTransitionRecord> pagelessRoutes =
-              pageRouteToPagelessRoutes[exitingPageRoute] ?? const <RouteTransitionRecord>[];
+              pageRouteToPagelessRoutes[exitingPageRoute] ??
+                  const <RouteTransitionRecord>[];
           for (final RouteTransitionRecord pagelessRoute in pagelessRoutes) {
             // It is possible that a pageless route that belongs to an exiting
             // page-based route does not require exiting decision. This can
             // happen if the page list is updated right after a Navigator.pop.
             if (pagelessRoute.isWaitingForExitingDecision) {
-              if (isBulkPop || isLastExitingPageRoute && pagelessRoute == pagelessRoutes.last) {
+              if (isBulkPop ||
+                  isLastExitingPageRoute &&
+                      pagelessRoute == pagelessRoutes.last) {
                 pagelessRoute.markForPop(pagelessRoute.route.currentResult);
               } else {
-                pagelessRoute.markForComplete(pagelessRoute.route.currentResult);
+                pagelessRoute
+                    .markForComplete(pagelessRoute.route.currentResult);
               }
             }
           }
@@ -71,7 +82,8 @@ class DelayedPopTransitionDelegate extends TransitionDelegate<void> {
       final bool isLastIteration = newPageRouteHistory.last == pageRoute;
 
       if (pageRoute.isWaitingForEnteringDecision) {
-        if (!locationToExitingPageRoute.containsKey(pageRoute) && isLastIteration) {
+        if (!locationToExitingPageRoute.containsKey(pageRoute) &&
+            isLastIteration) {
           pageRoute.markForPush();
         } else {
           pageRoute.markForAdd();

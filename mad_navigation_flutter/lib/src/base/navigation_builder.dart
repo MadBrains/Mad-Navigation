@@ -28,7 +28,8 @@ class NavigationBuilder<S extends MadNavigationState> extends StatefulWidget {
   State<NavigationBuilder<S>> createState() => _NavigationBuilderState<S>();
 }
 
-class _NavigationBuilderState<S extends MadNavigationState> extends State<NavigationBuilder<S>> {
+class _NavigationBuilderState<S extends MadNavigationState>
+    extends State<NavigationBuilder<S>> {
   MadNavigationService get navigationService => widget.navigationService;
 
   @override

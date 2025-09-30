@@ -43,7 +43,8 @@ class NavigationListener<S extends MadNavigationState> extends StatefulWidget {
   State<NavigationListener<S>> createState() => _NavigationListenerState<S>();
 }
 
-class _NavigationListenerState<S extends MadNavigationState> extends State<NavigationListener<S>> {
+class _NavigationListenerState<S extends MadNavigationState>
+    extends State<NavigationListener<S>> {
   late final StreamSubscription<S> _subscription;
 
   S? _prevState;

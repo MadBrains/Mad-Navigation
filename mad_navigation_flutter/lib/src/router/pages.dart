@@ -8,7 +8,8 @@ class _MaterialPage<T> extends MaterialPage<T> {
   /// Creates a Material page with the given [child] widget.
   ///
   /// The [key] is used to identify the page in the navigation stack.
-  const _MaterialPage({required LocalKey? key, required Widget child}) : super(key: key, child: child);
+  const _MaterialPage({required LocalKey? key, required Widget child})
+      : super(key: key, child: child);
 }
 
 /// A Cupertino style page implementation.
@@ -19,7 +20,8 @@ class _CupertinoPage<T> extends CupertinoPage<T> {
   /// Creates a Cupertino page with the given [child] widget.
   ///
   /// The [key] is used to identify the page in the navigation stack.
-  const _CupertinoPage({required LocalKey? key, required Widget child}) : super(key: key, child: child);
+  const _CupertinoPage({required LocalKey? key, required Widget child})
+      : super(key: key, child: child);
 }
 
 /// A page with a fade-in animation when it's pushed onto the navigation stack.
@@ -31,7 +33,8 @@ class _FadeAnimationPage<T> extends Page<T> {
   ///
   /// The [key] is used to identify the page in the navigation stack.
   /// The [child] is the widget to display in the page.
-  const _FadeAnimationPage({required LocalKey? key, required this.child}) : super(key: key);
+  const _FadeAnimationPage({required LocalKey? key, required this.child})
+      : super(key: key);
 
   /// The widget to display in the page.
   final Widget child;
@@ -47,7 +50,8 @@ class _FadeAnimationPage<T> extends Page<T> {
       ) {
         final CurveTween curveTween = CurveTween(curve: Curves.easeIn);
 
-        return FadeTransition(opacity: animation.drive(curveTween), child: child);
+        return FadeTransition(
+            opacity: animation.drive(curveTween), child: child);
       },
     );
   }
@@ -61,7 +65,8 @@ class _SimplePage<T> extends Page<T> {
   /// Creates a simple page with the given [child] widget.
   ///
   /// The [key] is used to identify the page in the navigation stack.
-  const _SimplePage({required LocalKey? key, required this.child}) : super(key: key);
+  const _SimplePage({required LocalKey? key, required this.child})
+      : super(key: key);
 
   /// The widget to display in the page.
   final Widget child;
@@ -89,7 +94,8 @@ class _Dialog<T> extends Page<T> {
   /// Creates a dialog page with the given [child] widget.
   ///
   /// The [key] is used to identify the page in the navigation stack.
-  const _Dialog({required LocalKey? key, required this.child}) : super(key: key);
+  const _Dialog({required LocalKey? key, required this.child})
+      : super(key: key);
 
   /// The widget to display in the dialog.
   final Widget child;
@@ -119,7 +125,8 @@ class _BottomSheet<T> extends Page<T> {
   /// Creates a bottom sheet page with the given [child] widget.
   ///
   /// The [key] is used to identify the page in the navigation stack.
-  const _BottomSheet({required LocalKey? key, required this.child}) : super(key: key);
+  const _BottomSheet({required LocalKey? key, required this.child})
+      : super(key: key);
 
   /// The widget to display in the bottom sheet.
   final Widget child;

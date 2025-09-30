@@ -30,7 +30,8 @@ abstract class MadRouteMapper {
   /// Creates a new [MadRouteMapper] with an optional custom [pageBuilder].
   ///
   /// If no [pageBuilder] is provided, a default [MadPageFactoryBuilder] will be used.
-  MadRouteMapper({MadPageFactoryBuilder? pageBuilder}) : _pageBuilder = pageBuilder ?? const MadPageFactoryBuilder() {
+  MadRouteMapper({MadPageFactoryBuilder? pageBuilder})
+      : _pageBuilder = pageBuilder ?? const MadPageFactoryBuilder() {
     _prepareRoutes();
   }
 
@@ -42,7 +43,8 @@ abstract class MadRouteMapper {
 
   final MadPageFactoryBuilder _pageBuilder;
 
-  final Set<MadRouteBuilder<AnyNavRoute>> _routes = <MadRouteBuilder<AnyNavRoute>>{};
+  final Set<MadRouteBuilder<AnyNavRoute>> _routes =
+      <MadRouteBuilder<AnyNavRoute>>{};
 
   /// Returns the set of all registered route builders.
   Set<MadRouteBuilder<AnyNavRoute>> get routes => _routes;
@@ -67,14 +69,15 @@ abstract class MadRouteMapper {
   /// Generates a [LocalKey] for the given [navRoute] and [seed].
   ///
   /// The key is created using the route's [pageKey] and the provided [seed].
-  LocalKey? _getKey(AnyNavRoute navRoute, String? seed) => ValueKey<String>('${navRoute.pageKey}?$seed');
+  LocalKey? _getKey(AnyNavRoute navRoute, String? seed) =>
+      ValueKey<String>('${navRoute.pageKey}?$seed');
 
   /// Builds a widget for the given [route] using the appropriate route builder.
   ///
   /// Throws [UnhandledRouteException] if no builder is found for the route.
   Widget _build(AnyNavRoute route) {
-    final MadRouteBuilder<AnyNavRoute>? builder =
-        _routes.firstWhereOrNull((MadRouteBuilder<AnyNavRoute> builder) => builder.canHandle(route));
+    final MadRouteBuilder<AnyNavRoute>? builder = _routes.firstWhereOrNull(
+        (MadRouteBuilder<AnyNavRoute> builder) => builder.canHandle(route));
 
     if (builder == null) throw UnhandledRouteException(route);
 
@@ -98,5 +101,6 @@ abstract class MadRouteMapper {
 
 extension on Set<MadRouteBuilder<AnyNavRoute>> {
   /// Checks if this set of routes contains a builder for the given [type].
-  bool containsType(Type type) => any((MadRouteBuilder<AnyNavRoute> builder) => builder.type == type);
+  bool containsType(Type type) =>
+      any((MadRouteBuilder<AnyNavRoute> builder) => builder.type == type);
 }

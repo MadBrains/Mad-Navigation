@@ -96,7 +96,8 @@ class _ScrollToTopListenerState extends State<ScrollToTopListener> {
         state.isJumpToTopOnRootPage,
         state.activeTab,
       ],
-      listener: (BuildContext context, MadTabNavigationState state, MadTabNavigationState prevState) {
+      listener: (BuildContext context, MadTabNavigationState state,
+          MadTabNavigationState prevState) {
         if (state.activeTab == widget.tab && state.isJumpToTopOnRootPage) {
           scrollToTop();
           navigationService.resetJumpToTopOnRootPage();
