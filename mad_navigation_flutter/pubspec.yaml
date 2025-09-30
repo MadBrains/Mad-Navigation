@@ -1,14 +1,19 @@
 name: mad_navigation_flutter
-description: Flutter package that seamlessly integrates the mad_navigation system with Flutter's widget tree and navigation. Provides Flutter-specific widgets, navigators, and route management to easily implement complex navigation patterns in Flutter applications. Includes support for different page transitions, tab navigation, and deep linking, making it easy to build intuitive and responsive mobile navigation experiences.
-version: 0.3.1
-repository: https://github.com/MadBrains/Mad-Navigation
+description: Flutter integration for mad_navigation with widgets and route management.
+version: 0.3.1+1
+repository: https://github.com/MadBrains/Mad-Navigation/tree/main/mad_navigation_flutter
 issue_tracker: https://github.com/MadBrains/Mad-Navigation/issues
 homepage: https://madbrains.ru/
 
 environment:
   sdk: ">=3.6.0 <4.0.0"
-  flutter: ">=3.27.0 <4.0.0"
+  flutter: ^3.27.0
 
 dependencies:
   flutter:
     sdk: flutter
+
+  collection: ">1.19.0 <2.0.0"
+
+  mad_navigation: ^0.3.1+1
+  mad_navigation_impl: ^0.3.1+1

@@ -20,7 +20,8 @@ class MissingPageFactoryException extends MadNavigationException {
   final AnyNavRoute route;
 
   @override
-  String toString() => 'MissingPageFactoryException: No page factory found for $route';
+  String toString() =>
+      'MissingPageFactoryException: No page factory found for $route';
 }
 
 /// Exception thrown when no route handler is found for a navigation action.
@@ -50,5 +51,6 @@ class DuplicateRouteException extends MadNavigationException {
   final Type type;
 
   @override
-  String toString() => 'DuplicateRouteException: Route with type $type already exists';
+  String toString() =>
+      'DuplicateRouteException: Route with type $type already exists';
 }

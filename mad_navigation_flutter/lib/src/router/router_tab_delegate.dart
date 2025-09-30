@@ -21,7 +21,8 @@ import 'package:mad_navigation_flutter/mad_navigation_flutter.dart';
 ///   );
 /// }
 /// ```
-class TabRouterDelegate<S extends MadTabNavigationState> extends RouterDelegate<S>
+class TabRouterDelegate<S extends MadTabNavigationState>
+    extends RouterDelegate<S>
     with ChangeNotifier, PopNavigatorRouterDelegateMixin<S> {
   /// Creates a new [TabRouterDelegate] with the given parameters.
   TabRouterDelegate({
@@ -50,7 +51,8 @@ class TabRouterDelegate<S extends MadTabNavigationState> extends RouterDelegate<
     // Build the list of pages from the current tab's route stack & seed values
     final List<Page<dynamic>> pages = <Page<dynamic>>[
       for (final AnyNavRoute route in appState.mergedTabStack)
-        routeMapper.mapRouteToPage<dynamic>(route, appState.seed, navigationService),
+        routeMapper.mapRouteToPage<dynamic>(
+            route, appState.seed, navigationService),
     ];
 
     return NavigationListener<S>(

@@ -49,7 +49,8 @@ class AppRouterDelegate<S extends MadNavigationState> extends RouterDelegate<S>
     // Build the list of pages from the current route stack & seed values
     final List<Page<dynamic>> pages = <Page<dynamic>>[
       for (final AnyNavRoute route in appState.routeStack)
-        routeMapper.mapRouteToPage<dynamic>(route, appState.seed, navigationService),
+        routeMapper.mapRouteToPage<dynamic>(
+            route, appState.seed, navigationService),
     ];
 
     return NavigationListener<S>(

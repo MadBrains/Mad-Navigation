@@ -53,12 +53,14 @@ class MadPageFactoryBuilder {
           FadePageType() => _FadeAnimationPage<T>(key: key, child: child),
           SimplePageType() => _SimplePage<T>(key: key, child: child),
           CupertinoPageType() => _CupertinoPage<T>(key: key, child: child),
-          (_) => _tryGetCustomPageByRoute(key: key, navRoute: navRoute, child: child),
+          (_) => _tryGetCustomPageByRoute(
+              key: key, navRoute: navRoute, child: child),
         },
       NavTabHolder<dynamic>() => _SimplePage<T>(key: key, child: child),
       NavDialog<dynamic>() => _Dialog<T>(key: key, child: child),
       NavBottomSheet<dynamic>() => _BottomSheet<T>(key: key, child: child),
-      (_) => _tryGetCustomPageByRoute(key: key, navRoute: navRoute, child: child),
+      (_) =>
+        _tryGetCustomPageByRoute(key: key, navRoute: navRoute, child: child),
     };
   }
 
